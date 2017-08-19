@@ -16,8 +16,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 require('./routes/routes.js')(app);
 
 // Handles local
-// app.get('*', function (request, response){
-//     response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
-// });
+app.get('*', function (request, response){
+    response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+});
 
 module.exports = app;
