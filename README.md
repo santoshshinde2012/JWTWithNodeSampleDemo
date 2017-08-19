@@ -2,7 +2,8 @@
 
 API Authentication using JWT (JSON Web Token) in Node.js (Express Framework )
 
-What is JWT?
+*What is JWT?**[https://jwt.io/introduction/]
+
 A JSON Web Token(JWT), defines an explicit, compact, and self-containing secured protocol for transmitting restricted informations. This is often used to send information that can be verified and trusted by means of a digital signature.
 
 Steps:
