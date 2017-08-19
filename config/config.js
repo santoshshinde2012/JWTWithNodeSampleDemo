@@ -3,6 +3,11 @@ module.exports = {
             host: 'localhost',
             port: 3000
     },
+    secret:{
+      auth : 'RESTFULAPIs',
+      session: '',
+      tokenExpiry: 1 * 30 * 1000 * 60 //1 hour
+    },
     db: {
         host: 'localhost',
         port: 27017,
