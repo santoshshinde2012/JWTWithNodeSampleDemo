@@ -7,8 +7,12 @@
     "dev": "PORT=3000 nodemon ./bin/www"
   },
   "dependencies": {
+    "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
-    "path": "^0.12.7"
+    "jsonwebtoken": "^7.4.3",
+    "mongoose": "^4.11.7",
+    "path": "^0.12.7",
+    "winston": "^2.3.1"
   }
 }
