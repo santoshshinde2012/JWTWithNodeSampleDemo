@@ -15,7 +15,6 @@ let W = require('winston');
  */
 let ApiRoutes = function(app) {
 
-
     /**
      * Decodes and verifies JWT against a config secret
      *
@@ -50,9 +49,8 @@ let ApiRoutes = function(app) {
             return res.status(401).json({ message: 'Unauthorized user!' });
         }
     };
-
-
-    //App is mapped to vidlogs.com
+    
+    //App is mapped to localhost
     let main = express.Router();
 
     main.get('/help', requiresAdmin, sampleRoutes.getHelp);
@@ -60,8 +58,6 @@ let ApiRoutes = function(app) {
     main.post('/user', userRoutes.createUser);
     main.get('/user', requiresAdmin, userRoutes.getUser);
     main.delete('/user', userRoutes.deleteUser);
-
-
 
     main.post('/auth/login', userRoutes.logIn);
 

@@ -50,9 +50,7 @@ var UserWrapper = (function() {
    *
    */
   var lib = {};
-
   lib.UserModel = UserModel;
-
   /**
    * Create user from paramters
    *
@@ -88,7 +86,6 @@ var UserWrapper = (function() {
               return Promise.reject(err);
           });
   };
-
   /**
    * Get a signed in token based on email and password
    *
@@ -123,14 +120,12 @@ var UserWrapper = (function() {
               return Promise.reject(err);
           });
   };
-
   /**
    * Get a signed in token based on email and password
    *
    * @param params
    * @returns {*}
    */
-
   lib.removeUser = function (userId) {
       return UserModel.findOneAndRemove({ '_id': userId })
          .then(function (result) {
@@ -142,7 +137,7 @@ var UserWrapper = (function() {
            return Promise.reject(err);
          })
   };
-
+  
   return lib;
 
 })();
