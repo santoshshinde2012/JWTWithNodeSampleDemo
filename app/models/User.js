@@ -124,6 +124,25 @@ var UserWrapper = (function() {
           });
   };
 
+  /**
+   * Get a signed in token based on email and password
+   *
+   * @param params
+   * @returns {*}
+   */
+
+  lib.removeUser = function (userId) {
+      return UserModel.findOneAndRemove({ '_id': userId })
+         .then(function (result) {
+            console.log('result', result);
+            return Promise.resolve({'message' : 'User successfully deleted!'});
+         })
+         .catch(function (err) {
+           console.log('err', err);
+           return Promise.reject(err);
+         })
+  };
+
   return lib;
 
 })();

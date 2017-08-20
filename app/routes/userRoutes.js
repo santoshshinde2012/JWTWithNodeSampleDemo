@@ -10,6 +10,12 @@ var UserModel = UserLib.UserModel;
 let userRoutes = (function() {
     let routes = {};
 
+    /**
+     * create an user
+     *
+     * @param req
+     * @param res
+     */
     routes.createUser = function(req, res) {
 
       req.assert('email', 'Need an email').notEmpty();
@@ -51,6 +57,12 @@ let userRoutes = (function() {
 
     };
 
+    /**
+     * login an user and get the token
+     *
+     * @param req
+     * @param res
+     */
     routes.logIn = function(req, res) {
         req.assert('email', 'Need an email').notEmpty();
         req.assert('email', 'Valid email required').isEmail();
@@ -85,6 +97,63 @@ let userRoutes = (function() {
             });
 
     };
+
+    /**
+     * get an user from the database
+     *
+     * @param req
+     * @param res
+     */
+    routes.getUser = function(req, res) {
+      if(!req.user){
+        return res.send({error: 'Unauthorized User'});
+      }
+
+      var userId = req.user._id;
+      UserLib.UserModel.findOne({_id: userId})
+          .then(function (user) {
+            if (!user) {
+                W.error("getUser() User not exist ", user);
+                throw new Error("UNKNOWN_ERROR");
+            }
+
+            return res.send(user);
+
+          })
+          .catch(function (err) {
+
+              W.error('Error while getUser ', err.name, err.message, err.stack);
+
+              return res.send({error: err.message});
+
+          });
+
+    }
+
+    /**
+     * remove an user from the database
+     *
+     * @param req
+     * @param res
+     */
+    routes.deleteUser = function(req, res) {
+
+      var userId = req.params.userId;
+
+      // get the user starlord55
+      UserLib.removeUser(userId)
+      .then(function(result) {
+          if(!result){
+            throw new Error("UNKNOWN_ERROR");
+          }
+          return res.send(result);
+      })
+      .catch(function(error) {
+          W.error('Error while remove User ', error.name, error.message, error.stack);
+
+          return res.send({error: error.message});
+      });
+    }
 
     return routes;
 

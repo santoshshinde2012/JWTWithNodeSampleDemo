@@ -4,7 +4,7 @@ let sampleRoutes = (function() {
     let routes = {};
 
     routes.getHelp = function(req, res) {
-        res.send('Hello , keep in touch.');
+        res.send({message : 'Hello , keep in touch.'});
     };
 
     return routes;
