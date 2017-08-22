@@ -1,19 +1,19 @@
 'use strict';
 
-let express = require('express');
+var express = require('express');
 
-let sampleRoutes = require('./sampleRoutes.js');
-let userRoutes = require('./userRoutes.js');
-let config = require('../../config/config');
-let jwt = require('jsonwebtoken');
-let W = require('winston');
+var sampleRoutes = require('./sampleRoutes.js');
+var userRoutes = require('./userRoutes.js');
+var config = require('../../config/config');
+var jwt = require('jsonwebtoken');
+var W = require('winston');
 
 /**
  * Define Api routes that are connected through middleware/routes
  *
  * @type {{user, Help}}
  */
-let ApiRoutes = function(app) {
+var ApiRoutes = function(app) {
 
     /**
      * Decodes and verifies JWT against a config secret
@@ -49,9 +49,9 @@ let ApiRoutes = function(app) {
             return res.status(401).json({ message: 'Unauthorized user!' });
         }
     };
-    
+
     //App is mapped to localhost
-    let main = express.Router();
+    var main = express.Router();
 
     main.get('/help', requiresAdmin, sampleRoutes.getHelp);
 

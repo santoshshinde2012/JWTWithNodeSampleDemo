@@ -1,7 +1,7 @@
 "use strict";
 
-let sampleRoutes = (function() {
-    let routes = {};
+var sampleRoutes = (function() {
+    var routes = {};
 
     routes.getHelp = function(req, res) {
         res.send({message : 'Hello , keep in touch.'});

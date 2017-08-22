@@ -7,8 +7,8 @@ var UserLib = require('../models/User');
 
 var UserModel = UserLib.UserModel;
 
-let userRoutes = (function() {
-    let routes = {};
+var userRoutes = (function() {
+    var routes = {};
 
     /**
      * create an user

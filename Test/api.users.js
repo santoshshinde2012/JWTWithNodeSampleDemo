@@ -42,7 +42,7 @@ describe('Users API', function () {
               });
         });
 
-        it("Should user get login based on email address", function(done) {
+        it("Should user get token[login] based on email address and password", function(done) {
             apiMain
                 .post("/api/auth/login")
                 .send({ email: user.email, password: user.password })
