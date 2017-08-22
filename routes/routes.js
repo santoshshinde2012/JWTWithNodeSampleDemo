@@ -1,19 +1,19 @@
 'use strict';
 
-let express = require('express');
+var express = require('express');
 
-let sampleRoutes = require('./sampleRoutes.js');
+var sampleRoutes = require('./sampleRoutes.js');
 
 /**
  * Define Api routes that are connected through middleware/routes
  *
  * @type {{account, video, channel}}
  */
-let ApiRoutes = function(app) {
+var ApiRoutes = function(app) {
 
 
     //App is mapped to vidlogs.com
-    let main = express.Router();
+    var main = express.Router();
 
     main.get('/help', sampleRoutes.getHelp);
 
